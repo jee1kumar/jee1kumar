@@ -1,0 +1,90 @@
+/* JM STUDIO — About page. Independent of the existing style.css. */
+:root {
+  color-scheme: dark;
+  --background: #080808;
+  --text: #fff;
+  --line: #383838;
+  --gutter: clamp(22px, 5vw, 80px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 16px/1.7 Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
+h1, h2, h3, p, dl, dd { margin: 0; }
+.site-header, main, footer {
+  width: min(100%, 1560px);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.site-header {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand { font-size: clamp(25px, 3vw, 42px); font-weight: 700; letter-spacing: -.05em; line-height: 1.1; }
+nav { display: flex; gap: 30px; }
+nav a { font-size: 16px; padding-block: 6px; border-bottom: 1px solid transparent; }
+nav a:hover, nav a[aria-current="page"] { border-color: #fff; }
+.about-intro { border-top: 1px solid var(--line); padding: 54px 0 64px; }
+.eyebrow { font-size: 12px; letter-spacing: .16em; margin-bottom: 24px; }
+/* Main studio name: large on desktop, scales down to fit a phone. */
+h1 { font-size: clamp(48px, 12.5vw, 180px); line-height: 1; font-weight: 700; letter-spacing: -.065em; }
+.intro-bottom { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: end; margin-top: 42px; }
+.intro-title { font: 400 clamp(28px, 3vw, 44px)/1.2 Georgia, 'Times New Roman', serif; }
+.intro-text { max-width: 440px; justify-self: end; }
+.section-heading { border-top: 1px solid var(--line); padding: 22px 0 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.section-heading h2 { font-size: 18px; font-weight: 400; }
+.section-heading span { font-size: 12px; letter-spacing: .13em; }
+.people-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 5vw, 80px); }
+.person { min-width: 0; }
+.portrait { overflow: hidden; background: #121212; }
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+/* Adjust object-position above if a face needs to sit higher/lower in the frame.
+   Remove filter: grayscale(100%) if you prefer original photo colors. */
+.person-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 26px 0 18px; }
+.person-heading h3 { font: 400 clamp(36px, 4vw, 54px)/1.1 Georgia, 'Times New Roman', serif; }
+.person-heading span { font-size: 12px; letter-spacing: .14em; }
+.bio { max-width: 500px; margin-bottom: 28px; }
+.details > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 20px; padding-block: 16px; border-top: 1px solid var(--line); }
+.details dt { font-size: 14px; }
+.details dd { overflow-wrap: anywhere; }
+.details a { text-decoration: underline; text-underline-offset: 4px; }
+.closing { margin-top: 80px; padding: 48px 0 64px; border-top: 1px solid var(--line); }
+.closing h2 { font: 400 clamp(28px, 3.5vw, 48px)/1.2 Georgia, 'Times New Roman', serif; margin-bottom: 24px; }
+.text-link { display: inline-block; border-bottom: 1px solid #fff; padding-bottom: 3px; }
+footer { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); padding-block: 30px; font-size: 13px; }
+footer a:hover { text-decoration: underline; }
+.skip-link { position: absolute; top: -100px; left: 16px; background: #080808; padding: 12px; z-index: 2; }
+.skip-link:focus { top: 12px; }
+@media (max-width: 650px) {
+  .site-header { min-height: 96px; gap: 18px; }
+  nav { gap: 18px; }
+  nav a { font-size: 14px; }
+  .about-intro { padding: 36px 0 42px; }
+  .eyebrow { font-size: 11px; letter-spacing: .1em; }
+  .intro-bottom { grid-template-columns: 1fr; gap: 22px; margin-top: 28px; }
+  .intro-text { justify-self: start; }
+  .section-heading span { font-size: 10px; text-align: right; }
+  .people-grid { grid-template-columns: 1fr; gap: 48px; }
+  .details > div { grid-template-columns: 80px minmax(0, 1fr); gap: 14px; }
+  .closing { margin-top: 48px; padding: 36px 0 44px; }
+  footer { flex-wrap: wrap; gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
