@@ -66,6 +66,18 @@ h1 { font-size: clamp(48px, 12.5vw, 180px); line-height: 1; font-weight: 700; le
 .details dt { font-size: 14px; }
 .details dd { overflow-wrap: anywhere; }
 .details a { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Instagram icon link (overrides the underline from .details a) */
+.details a.social-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: .85;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.details a.social-link:hover { opacity: 1; transform: translateY(-1px); }
+.details a.social-link svg { display: block; }
+
 .closing { margin-top: 80px; padding: 48px 0 64px; border-top: 1px solid var(--line); }
 .closing h2 { font: 400 clamp(28px, 3.5vw, 48px)/1.2 Georgia, 'Times New Roman', serif; margin-bottom: 24px; }
 .text-link { display: inline-block; border-bottom: 1px solid #fff; padding-bottom: 3px; }
@@ -87,4 +99,7 @@ footer a:hover { text-decoration: underline; }
   .closing { margin-top: 48px; padding: 36px 0 44px; }
   footer { flex-wrap: wrap; gap: 12px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .details a.social-link { transition: none; }
+}
