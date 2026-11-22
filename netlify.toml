@@ -1,0 +1,5 @@
+# The site is plain HTML/CSS. The only build step generates the ICTS archive
+# pages from every photo found in images/icts/archive/.
+[build]
+  publish = "."
+  command = "node scripts/build-icts-archive.mjs"
